@@ -1,0 +1,11 @@
+### get orders
+GET http://localhost:3300/orders
+
+### add orders
+POST http://localhost:3300/order
+Content-Type: application/json
+
+{
+  "item": "apple",
+  "price": 3.22
+}
