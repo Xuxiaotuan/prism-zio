@@ -1,0 +1,21 @@
+### get users
+GET {{api}}}/users
+
+### add user
+POST {{api}}}/users
+Content-Type: application/json
+
+{
+  "name": "Tom",
+  "age": 27
+}
+
+### get signle user
+### {{api}}}/users/{{id}}
+###output
+###{
+###  "name": "Tom",
+###  "age": 27
+###}
+GET {{api}}/users/80a83785-0782-49fd-801f-94dc33e0ad63
+
