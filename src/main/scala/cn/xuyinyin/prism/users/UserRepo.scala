@@ -8,7 +8,6 @@ trait UserRepo {
   def lookup(id: String): Task[Option[User]]
 
   def users: Task[List[User]]
-
 }
 
 object UserRepo{

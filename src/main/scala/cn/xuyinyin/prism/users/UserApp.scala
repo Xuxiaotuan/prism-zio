@@ -15,7 +15,7 @@ object UserApp {
   def apply(): Http[UserRepo, Throwable, Request, Response] =
     Http.collectZIO[Request] {
       // POST /users -d '{"name": "John", "age": 35}'
-      case req @ (Method.POST -> Root / "users") =>
+      case req @ Method.POST -> Root / "users" =>
         (for {
           u <- req.body.asString.map(_.fromJson[User])
           r <- u match {

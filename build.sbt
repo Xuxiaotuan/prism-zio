@@ -1,7 +1,7 @@
 val scala = "2.13.10"
 
 val zioHttpVersion = "3.0.0-RC2"
-val zioVersion     = "2.0.19"
+val zioVersion     = "2.1-RC1"
 
 lazy val commonSettings = Seq(
   organization := "xuyinyin",

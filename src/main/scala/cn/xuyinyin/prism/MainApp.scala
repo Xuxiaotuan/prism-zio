@@ -7,15 +7,23 @@ import cn.xuyinyin.prism.users.{InmemoryUserRepo, UserApp}
 import zio._
 import zio.http._
 
-object MainApp extends ZIOAppDefault {
+/**
+ * 项目启动入口
+ */
+object MainApp extends ZIOAppDefault{
+
   def run: ZIO[Environment with ZIOAppArgs with Scope, Throwable, Any] = {
+
+    // 添加 routes
     val httpApps = GreetingApp() ++ DownloadApp() ++ CounterApp() ++ UserApp()
+
+    // web 服务启动命令
     Server
       .serve(
         httpApps.withDefaultErrorResponse
       )
       .provide(
-        Server.defaultWithPort(3300),
+        Server.defaultWithPort(10030),
 
         // An layer responsible for storing the state of the `counterApp`
         ZLayer.fromZIO(Ref.make(0)),
@@ -26,3 +34,4 @@ object MainApp extends ZIOAppDefault {
   }
 
 }
+
